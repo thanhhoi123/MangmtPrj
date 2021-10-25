@@ -1,7 +1,16 @@
 # demo
  MangMT Project - 3rd Year
 
+# Create new database
 
+1. trường hợp muốn nâng phiên bản database hiện tại
+```
+php artisan migrate
+```
+2. trường hợp muốn tạo mới lại hoàn toàn *bỏ toàn bộ các bảng hiện có và tạo lại hoàn toàn*
+```
+php artisan migrate:fresh
+```
 # Github workflow
 
 - Khi bắt đầu dự án cần fork repo **minhquanhbt/MangmtPrj** về
