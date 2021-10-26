@@ -13,15 +13,15 @@ php artisan migrate:fresh
 ```
 # Github workflow
 
-- Khi bắt đầu dự án cần fork repo **minhquanhbt/MangmtPrj** về
-- Tiếp đó tiên hành clone code từ repo đã fork nói trên **[username]/MangmtPrj**
+- Khi bắt đầu dự án cần fork repo **minhquanhbt/QuanLyBanHangProject** về
+- Tiếp đó tiên hành clone code từ repo đã fork nói trên **[username]/QuanLyBanHangProject**
 - Sau khi clone sẽ di chuyển vào folder vừa clone để add thêm repo chính của dự án **minhquanhbt/MangmtPrj** với lệnh sau nếu sử dụng SSH key:
 ```
-git remote add origin git@github.com:minhquanhbt/MangmtPrj.git
+git remote add origin git@github.com:minhquanhbt/QuanLyBanHangProject.git
 ```
 hoặc nếu sử dụng https
 ```
-git remote add origin https://github.com/minhquanhbt/MangmtPrj.git
+git remote add origin https://github.com/minhquanhbt/QuanLyBanHangProject.git
 ```
 - Branch chính của dự án là **main**
 - Mỗi tính năng mới hoặc bug fix mới sẽ làm theo flow như sau
