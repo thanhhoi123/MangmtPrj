@@ -11,7 +11,7 @@ class SanPham extends Model
 
     protected $guarded = [];
 
-    public function Category()
+    public function Categories()
     {
         return $this->belongsToMany(Category::class);
     }

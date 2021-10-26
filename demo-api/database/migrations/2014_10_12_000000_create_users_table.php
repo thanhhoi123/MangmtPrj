@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->Integer('role');
             $table->string('SDT');
             $table->string('Address');
+            $table->string('avatar');
             $table->rememberToken();
             $table->timestamps();
         });
