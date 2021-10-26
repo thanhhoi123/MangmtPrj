@@ -1,5 +1,5 @@
 # demo
- MangMT Project - 3rd Year
+ QuanLyBanHang Project - 3rd Year
 
 # Create new database
 
@@ -15,7 +15,7 @@ php artisan migrate:fresh
 
 - Khi bắt đầu dự án cần fork repo **minhquanhbt/QuanLyBanHangProject** về
 - Tiếp đó tiên hành clone code từ repo đã fork nói trên **[username]/QuanLyBanHangProject**
-- Sau khi clone sẽ di chuyển vào folder vừa clone để add thêm repo chính của dự án **minhquanhbt/MangmtPrj** với lệnh sau nếu sử dụng SSH key:
+- Sau khi clone sẽ di chuyển vào folder vừa clone để add thêm repo chính của dự án **minhquanhbt/QuanLyBanHangProject** với lệnh sau nếu sử dụng SSH key:
 ```
 git remote add origin git@github.com:minhquanhbt/QuanLyBanHangProject.git
 ```
