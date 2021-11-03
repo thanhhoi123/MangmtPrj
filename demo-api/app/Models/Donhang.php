@@ -17,6 +17,6 @@ class Donhang extends Model
     }
     public function User()
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsTo(User::class)->withTimestamps();
     }
 }

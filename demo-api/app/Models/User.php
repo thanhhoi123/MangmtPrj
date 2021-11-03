@@ -43,7 +43,7 @@ class User extends Authenticatable
     ];
     public function Donhangs()
     {
-        return $this->belongsToMany(Donhangs::class())->withTimestamps();
+        return $this->hasMany(Donhangs::class())->withTimestamps();
     }
 
 }

@@ -22,7 +22,7 @@ class DonhangFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'Address' => $this->faker->unique()->address(),
         ];
     }
 }
