@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDonhangSanPhamTable extends Migration
+class CreateCategorySanPhamTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateDonhangSanPhamTable extends Migration
      */
     public function up()
     {
-        Schema::create('donhang_san_pham', function (Blueprint $table) {
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-            $table->unsignedBigInteger('donhang_id');
+        Schema::create('category_san_pham', function (Blueprint $table) {
+            $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('san_pham_id');
-            $table->unsignedBigInteger('amount');
         });
     }
 
@@ -29,6 +26,6 @@ class CreateDonhangSanPhamTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donhang_san_pham_');
+        Schema::dropIfExists('category_san_pham_');
     }
 }
