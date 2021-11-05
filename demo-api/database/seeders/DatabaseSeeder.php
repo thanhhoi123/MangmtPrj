@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\SanPham;
 use App\Models\Donhang;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'MQ',
             'email' => 'admin@example.com',
             'email_verified_at' => now(),
-            'password' => '123456',
+            'password' => Hash::make(123456) ,
             'remember_token' => '1234567890',
             'role' => '1',
             'SDT' => '01234567891',
