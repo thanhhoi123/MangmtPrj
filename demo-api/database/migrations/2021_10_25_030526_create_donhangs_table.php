@@ -19,6 +19,7 @@ class CreateDonhangsTable extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->string('Address');
+            $table->boolean('Accept')->default(0);
         });
     }
 
