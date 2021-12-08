@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DonhangController;
+use App\Http\Controllers\SanphamController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,5 +30,8 @@ Route::post('v1/createDH/{id}',[DonhangController::class,'store']);
 Route::post('v1/update/{id}',[DonhangController::class,'update']);
 Route::get('v1/delete/{id}',[DonhangController::class,'destroy']);
 Route::get('v1/deletemany',[DonhangController::class,'destroymany']);
+// San Pham Controller
+Route::get('v1/getSP',[SanphamController::class,'index']);
+
 
 
