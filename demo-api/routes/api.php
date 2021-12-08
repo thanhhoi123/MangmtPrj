@@ -22,6 +22,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login',[UserController::class,'login']);
 
 // version 1
-
+// Don Hang Controller
 Route::get('v1/getDH/{id}',[DonhangController::class,'index']);
+Route::get('v1/detail/{id}',[DonhangController::class,'show']);
+Route::post('v1/createDH/{id}',[DonhangController::class,'store']);
+Route::post('v1/update/{id}',[DonhangController::class,'update']);
+Route::get('v1/delete/{id}',[DonhangController::class,'destroy']);
+Route::get('v1/deletemany',[DonhangController::class,'destroymany']);
+
 

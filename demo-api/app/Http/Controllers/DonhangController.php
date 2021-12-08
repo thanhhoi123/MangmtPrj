@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Donhang;
 use Illuminate\Http\Request;
+use App\Models\SanPham;
 
 class DonhangController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the Donhang with User ID.
      *
      * @return \Illuminate\Http\Response
      */
@@ -23,7 +24,7 @@ class DonhangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
     }
@@ -34,9 +35,19 @@ class DonhangController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
-        //
+        $donhang = Donhang::create([
+            'user_id' => $id,
+            'Address' => $request->address,
+            'accept' => $request->accept
+        ]);
+        foreach ($request->sanpham as $sanpham)
+        {
+            $product = SanPham::find($sanpham['id'])->first();
+            $donhang->sanphams()->save($product, ['amount' => $sanpham['amount']]);
+        }
+        return $donhang;
     }
 
     /**
@@ -45,9 +56,15 @@ class DonhangController extends Controller
      * @param  \App\Models\Donhang  $donhang
      * @return \Illuminate\Http\Response
      */
-    public function show(Donhang $donhang)
+    public function show($id)
     {
-        //
+        $donhang = Donhang::where('id', $id)->first();
+        $sanphams=[];
+        foreach ($donhang->sanphams as $sanpham)
+        {
+            $sanphams[] =$sanpham;
+        }
+        return $sanphams;
     }
 
     /**
@@ -68,9 +85,34 @@ class DonhangController extends Controller
      * @param  \App\Models\Donhang  $donhang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Donhang $donhang)
+    public function update(Request $request, $id)
     {
-        //
+        try
+        {
+            $donhang = Donhang::where('id', $id)->first();
+            if($request->has('address'))
+            {
+                $donhang->update(['Address'=> $request->get('address')]);
+            }
+            if($request->has('accept'))
+            {
+                $donhang->update(['Accept'=> $request->get('accept')]);
+            }
+            if($request->has('sanpham'))
+            {
+                $donhang->sanphams()->detach();
+                foreach ($request->sanpham as $sanpham)
+                {
+                    $product = SanPham::where('id', $sanpham['id'])->first();
+                    $donhang->sanphams()->save($product, ['amount' => $sanpham['amount']]);
+                }
+            }
+            return $donhang;
+        }
+        catch(Exception $e)
+        {
+            return $e;
+        }
     }
 
     /**
@@ -79,8 +121,28 @@ class DonhangController extends Controller
      * @param  \App\Models\Donhang  $donhang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donhang $donhang)
+    public function destroy($id)
     {
-        //
+        try
+        {
+            $donhang = Donhang::where('id', $id)->first();
+            $donhang->sanphams()->detach();
+            $donhang->delete();
+            return "Success";
+        }
+        catch(Exception $e){return $e;}
+    }
+    public function destroymany(Request $request)
+    {
+        try{
+            foreach($request->id as $id)
+            {
+                $donhang = Donhang::where('id', $id)->first();
+                $donhang->sanphams()->detach();
+                $donhang->delete();
+            }
+            return "Success";
+        }
+        catch(Exception $e){return $e;}
     }
 }
