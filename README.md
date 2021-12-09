@@ -11,6 +11,14 @@ php artisan migrate
 ```
 php artisan migrate:fresh
 ```
+2. thêm dữ liệu mẫu cho database
+```
+php artisan db:seed
+```
+hoặc
+```
+php artisan migrate:fresh --seed
+```
 # Github workflow
 
 - Khi bắt đầu dự án cần fork repo **minhquanhbt/MangmtPrj** về
