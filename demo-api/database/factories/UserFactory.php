@@ -24,6 +24,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $link=['https://quanlybanhangapi.herokuapp.com/avatar/default.png','https://quanlybanhangapi.herokuapp.com/avatar/Gdefault.png'];
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
@@ -33,7 +34,7 @@ class UserFactory extends Factory
             'role' => 0,
             'SDT' => $this->faker->unique()->phoneNumber(),
             'Address' => $this->faker->unique()->address(),
-            'avatar' => basename($this->faker->image(storage_path('app/avatar'))),
+            'avatar' => $this->faker->randomElement($link),
         ];
     }
 
