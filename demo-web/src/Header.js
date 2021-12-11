@@ -9,14 +9,17 @@ function Header() {
         navigate('/login', {replace: true});
     }
     return (
-        <div>
+        <div className='navbar_blog'>
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="#home" className='navbar_margin'>Multilevel Association</Navbar.Brand>
                 <Nav className="me-auto">
                     {
                         localStorage.getItem("user-info") ?
                             <>
-                                <Link to="/productlist" >Danh sách sản phẩm</Link>
+                                <Link to="/productlist" className="navbar_warapper" >List sản phẩm</Link>
+                                <Link to="/dsdonhang" className="navbar_warapper" >List đơn hàng</Link>
+                                {/* <Link to="/giohang" >Giỏ hàng</Link> */}
+
                                 {/* <Link to="/add" >Add Products</Link>
                                 <Link to="/update" >Update Products</Link>
                                 <Link to="/search" >Search Products</Link> */}

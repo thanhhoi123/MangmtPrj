@@ -9,6 +9,12 @@ import Register from './Register'
 // import UpdateProduct from './UpdateProduct'
 import Protected from './Protected'
 import ProductList from './ProductList'
+import Dsachdonhang from './Dsachdonhang'
+import Chitietdonhang from './Chitietdonhang'
+import Suadonhang from './Suadonhang'
+import Buyproduct from './Buyproduct'
+
+
 // import SearchProduct from './SearchProduct'
 
 function App() {
@@ -39,6 +45,12 @@ function App() {
           </Route> */}
 
           <Route path="/productlist" element={<Protected Cmp={ProductList} />} />
+          <Route path="/dsdonhang" element={<Protected Cmp={Dsachdonhang} />} />
+          <Route path="/chitietdonhang" element={<Protected Cmp={Chitietdonhang} />} />
+          <Route path="/suadonhang" element={<Protected Cmp={Suadonhang} />} />
+          <Route path="/muasanpham" element={<Protected Cmp={Buyproduct} />} />
+
+          
           {/* <Route path="/" element={<Protected Cmp={ProductList} />} /> */}
           <Route path="/" element={<Login/>} />
 

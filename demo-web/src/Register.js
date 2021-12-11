@@ -13,14 +13,10 @@ function Register() {
     const [password, setPassword] = useState("");
     const [confirmpassword, setConfirmpassword] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [addr, setAddr] = useState("");
-    const remember_token ="";
-    const avatar="";
-    const role=0;
-
+    const [SDT, setSDT] = useState("");
+    const [Address, setAddress] = useState("");
     async function signUp() {
-        let item = { name, password, email,phone,addr,avatar,role,remember_token };
+        let item = { name, password, email,SDT,Address };
         console.warn(item);
         if (password === confirmpassword) {
             let result = await fetch("http://quanlybanhangapi.herokuapp.com/api/register", {
@@ -32,15 +28,15 @@ function Register() {
                 }
             })
             result = await result.json();
-            localStorage.setItem("user-info", JSON.stringify(result));
+            // localStorage.setItem("user-info", JSON.stringify(result));
             // navigate('/productlist', { replace: true });
-            // if (JSON.stringify(result) !== JSON.stringify({ "Your password": "must contrain at least 5 characters!" })) {
-            //     localStorage.setItem("user-info", JSON.stringify(result));
-            //     navigate('/productlist', { replace: true });
-            // }
-            // else {
-            //     alert("Vui lòng đặt mật khẩu trên 5 kí tự!")
-            // }
+            if (JSON.stringify(result) !== JSON.stringify({ "Your password": "must contrain at least 5 characters!" })) {
+                localStorage.setItem("user-info", JSON.stringify(result));
+                navigate('/productlist', { replace: true });
+            }
+            else {
+                alert("Vui lòng đặt mật khẩu trên 5 kí tự!")
+            }
         }
         else {
             alert("Mật khẩu không trùng khớp!")
@@ -56,9 +52,9 @@ function Register() {
                 <br />
                 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" placeholder="Địa chỉ Email" />
                 <br />
-                <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} className="form-control" placeholder="Số điện thoại" />
+                <input type="text" value={SDT} onChange={(e) => setSDT(e.target.value)} className="form-control" placeholder="Số điện thoại" />
                 <br />
-                <input type="text" value={addr} onChange={(e) => setAddr(e.target.value)} className="form-control" placeholder="Địa chỉ" />
+                <input type="text" value={Address} onChange={(e) => setAddress(e.target.value)} className="form-control" placeholder="Địa chỉ" />
                 <br />
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" placeholder="Mật khẩu" />
                 <br />
