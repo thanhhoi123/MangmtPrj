@@ -40,12 +40,13 @@ class DonhangController extends Controller
         $donhang = Donhang::create([
             'user_id' => $id,
             'Address' => $request->address,
-            'accept' => $request->accept
+            'Accept' => $request->accept
         ]);
         foreach ($request->sanpham as $sanpham)
         {
             $product = SanPham::find($sanpham['id'])->first();
             $donhang->sanphams()->save($product, ['amount' => $sanpham['amount']]);
+            $product->amount = $product->amount - $sanpham['amount'];
         }
         return $donhang;
     }

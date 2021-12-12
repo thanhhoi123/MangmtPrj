@@ -27,17 +27,9 @@ class DatabaseSeeder extends Seeder
             'role' => '1',
             'SDT' => '01234567891',
             'Address' => 'AAA at BBB',
-            'avatar' => 'avatar/user1.png',
+            'avatar' => 'https://quanlybanhangapi.herokuapp.com/avatar/default.png',
         ]);
-        Category::insert(['name'=> 'BC']);
-        Category::insert(['name'=> 'Trang']);
-        Category::insert(['name'=> 'Si']);
-        SanPham::factory(20)->create();
-        $category = \App\Models\Category::all();
-        SanPham::all()->each(function($sp) use($category)
-        {
-            $sp->categories()->attach($category->random(rand(1, 3))->pluck('id')->toArray());
-        });
+        $this->call(SanPhamSeeder::class);
         User::factory(20)->create()->each(function($user) {
             $sanphams = SanPham::all();
             Donhang::factory(rand(1, 20))->create([
