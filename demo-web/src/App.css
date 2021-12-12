@@ -7,6 +7,35 @@
   pointer-events: none;
 }
 
+.navbar_margin{
+  padding-right: 150px;
+  padding-left: 30px;
+}
+.bought{
+  background-color: #25ac3c;
+  color: aliceblue;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.bt{
+  margin-left: 50px;
+}
+.chitiet{
+  color: rgb(44, 24, 158);
+  padding: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.namepage{
+  color:#d31d35;
+}
+
+.navbar_warapper {
+  padding-right: 30px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('login',[UserController::class,'login']);
+Route::post('register',[UserController::class,'register']);
 
 // version 1
 // Don Hang Controller
